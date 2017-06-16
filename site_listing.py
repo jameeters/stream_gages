@@ -1,7 +1,7 @@
 import requests
 
 def get_sites(state):
-    url = 'https://waterservices.usgs.gov/nwis/site?format=rdb&stateCd={}&outputDataTypeCd=iv,dv&siteType=ST&siteStatus=active&hasDataTypeCd=iv,dv'.format(state.lower())
+    url = 'https://waterservices.usgs.gov/nwis/site?format=rdb&stateCd={}&siteType=ST&siteStatus=active&hasDataTypeCd=iv,dv'.format(state.lower())
 
     req = requests.get(url)
     if req.status_code != 200 :
@@ -21,6 +21,7 @@ def get_sites(state):
 
     fields = data[0].split('\t')
     data_nice = []
+
     for line in data[1:]:
         line = line.split('\t')
         line_dict = dict(zip(fields, line))

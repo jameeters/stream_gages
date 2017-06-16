@@ -50,4 +50,8 @@ def get_details (site, start_date, end_date):
 
     return good_data
 
-
+# gives results of get_details, but filtered to unique site numbers using stations that match the given start and end dates
+# Obviously incomplete
+def get_dated_details(state, start, end):
+    data = get_details(state)
+    return None
